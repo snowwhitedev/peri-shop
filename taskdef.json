@@ -1,0 +1,178 @@
+{
+    "ipcMode": null,
+    "executionRoleArn": "arn:aws:iam::771406118498:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+      {
+        "dnsSearchDomains": null,
+        "environmentFiles": null,
+        "logConfiguration": {
+          "logDriver": "awslogs",
+          "secretOptions": null,
+          "options": {
+            "awslogs-group": "/ecs/perdiem-shop-bg-blueprint",
+            "awslogs-region": "us-east-1",
+            "awslogs-stream-prefix": "ecs"
+          }
+        },
+        "entryPoint": null,
+        "portMappings": [
+          {
+            "hostPort": 3000,
+            "protocol": "tcp",
+            "containerPort": 3000
+          }
+        ],
+        "command": [],
+        "linuxParameters": null,
+        "cpu": 1024,
+        "environment": [
+          {
+            "name": "CDN_URL",
+            "value": "https://cdn.per-diem.co"
+          },
+          {
+            "name": "NODE_ENV",
+            "value": "production"
+          },
+          {
+            "name": "STRIPE_CONNECT_URL",
+            "value": "https://dashboard.stripe.com/oauth/authorize?response_type=code&client_id=ca_HOXidOExhLb1HZ68ippaXJkJlkpVhh2b&scope=read_write"
+          }
+        ],
+        "resourceRequirements": null,
+        "ulimits": null,
+        "dnsServers": null,
+        "mountPoints": [],
+        "workingDirectory": null,
+        "secrets": [
+          {
+            "valueFrom": "arn:aws:secretsmanager:us-east-1:771406118498:secret:DATABASE_URL-59qWeM",
+            "name": "DATABASE_URL"
+          },
+          {
+            "valueFrom": "arn:aws:secretsmanager:us-east-1:771406118498:secret:IAM_ACCESS_KEY-4sxUKn",
+            "name": "IAM_ACCESS_KEY"
+          },
+          {
+            "valueFrom": "arn:aws:secretsmanager:us-east-1:771406118498:secret:IAM_SECRET_KEY-tVONoP",
+            "name": "IAM_SECRET_KEY"
+          },
+          {
+            "valueFrom": "arn:aws:secretsmanager:us-east-1:771406118498:secret:JWT_SECRET-sDqQ0e",
+            "name": "JWT_SECRET"
+          },
+          {
+            "valueFrom": "arn:aws:secretsmanager:us-east-1:771406118498:secret:PG_URL-miIKZ9",
+            "name": "PG_URL"
+          },
+          {
+            "valueFrom": "arn:aws:secretsmanager:us-east-1:771406118498:secret:STRIPE_LIVE_PUBLISHABLE_KEY-NUEsrh",
+            "name": "STRIPE_LIVE_PUBLISHABLE_KEY"
+          },
+          {
+            "valueFrom": "arn:aws:secretsmanager:us-east-1:771406118498:secret:STRIPE_LIVE_SECRET_KEY-Wz2wNN",
+            "name": "STRIPE_LIVE_SECRET_KEY"
+          }
+        ],
+        "dockerSecurityOptions": null,
+        "memory": null,
+        "memoryReservation": null,
+        "volumesFrom": [],
+        "stopTimeout": null,
+        "image": "771406118498.dkr.ecr.us-east-1.amazonaws.com/perdiem-shop:latest",
+        "startTimeout": null,
+        "firelensConfiguration": null,
+        "dependsOn": null,
+        "disableNetworking": null,
+        "interactive": null,
+        "healthCheck": null,
+        "essential": true,
+        "links": null,
+        "hostname": null,
+        "extraHosts": null,
+        "pseudoTerminal": null,
+        "user": null,
+        "readonlyRootFilesystem": null,
+        "dockerLabels": null,
+        "systemControls": null,
+        "privileged": null,
+        "name": "perdiem-shop"
+      }
+    ],
+    "placementConstraints": [],
+    "memory": "2048",
+    "taskRoleArn": "arn:aws:iam::771406118498:role/ecsTaskExecutionRole",
+    "compatibilities": [
+      "EC2",
+      "FARGATE"
+    ],
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:771406118498:task-definition/perdiem-shop-bg-blueprint:3",
+    "family": "perdiem-shop-bg-blueprint",
+    "requiresAttributes": [
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "ecs.capability.execution-role-awslogs"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "com.amazonaws.ecs.capability.ecr-auth"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "ecs.capability.secrets.asm.environment-variables"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "com.amazonaws.ecs.capability.task-iam-role"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "ecs.capability.execution-role-ecr-pull"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "ecs.capability.task-eni"
+      }
+    ],
+    "pidMode": null,
+    "requiresCompatibilities": [
+      "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "1024",
+    "revision": 3,
+    "status": "ACTIVE",
+    "inferenceAccelerators": null,
+    "proxyConfiguration": null,
+    "volumes": []
+  }
